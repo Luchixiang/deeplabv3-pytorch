@@ -12,7 +12,7 @@ class DeepLabv3(nn.Module):
         super(DeepLabv3, self).__init__()
         self.model_id = model_id
         self.project_dir = project_dir
-        self.num_classes = 3
+        self.num_classes = 20
         self.create_model_dirs()
         self.resnet = ResNet101_OS16()
         self.aspp = ASPP_Bottleneck(num_classes=self.num_classes)
