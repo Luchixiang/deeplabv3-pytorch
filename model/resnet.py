@@ -73,9 +73,9 @@ class ResNet_Bottleneck_OS16(nn.Module):
 
             print("pretrained resnet, 50")
         elif num_layers == 101:
-            resnet = models.resnet101()
+            resnet = models.resnet101(pretrained=False)
             # load pretrained model:
-            #resnet.load_state_dict(torch.load("/root/deeplabv3/pretrained_models/resnet/resnet101-5d3b4d8f.pth"))
+            resnet.load_state_dict(torch.load('/home/lcx/deeplabv3/pretrained_mode/resnet101_pretrained.pth'))
             # remove fully connected layer, avg pool and layer5:
             self.resnet = nn.Sequential(*list(resnet.children())[:-3])
 
@@ -98,7 +98,6 @@ class ResNet_Bottleneck_OS16(nn.Module):
 
         # pass x through (parts of) the pretrained ResNet:
         c4 = self.resnet(x)  # (shape: (batch_size, 4*256, h/16, w/16)) (it's called c4 since 16 == 2^4)
-        print("c4 shape:", c4.shape)
         output = self.layer5(c4)  # (shape: (batch_size, 4*512, h/16, w/16))
 
         return output

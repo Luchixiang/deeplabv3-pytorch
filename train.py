@@ -6,7 +6,8 @@ import numpy as np
 import torch.nn as nn
 import torch.utils.data
 
-from dataset import DataTrain, DatasetVal
+from dataset import DataTrain
+from dataset import DatasetVal
 from model.deeplabv3 import DeepLabv3
 from utils.utils import weight_decay
 
@@ -19,7 +20,7 @@ def poly_lr_scheduler(optimizer, init_lr, iter, max_iter, power):  # ploy_learni
         param_group['lr'] = lr
 
 
-model_id = '2'
+model_id = '4'
 num_epochs = 1000
 batch_size = 3
 learning_rate = 0.0001
@@ -51,7 +52,7 @@ for epoch in range(num_epochs):
     batch_losses = []
     for step, (img, label_img) in enumerate(train_loader):
         img = img.cuda()
-        label_img = label_img.cuda()
+        label_img = label_img.long().cuda()
         outputs = network(img)
         loss = loss_fn(outputs, label_img)
         loss_value = loss.data.cpu().numpy()
@@ -79,9 +80,9 @@ for epoch in range(num_epochs):
 
     network.eval()
     batch_losses = []
-    for step, (img, label_img) in enumerate(val_loader):
+    for step, (img, label_img,img_id) in enumerate(val_loader):
         img = img.cuda()
-        label_img = label_img.cuda()
+        label_img = label_img.long().cuda()
         outputs = network(img)
         loss = loss_fn(outputs, label_img)
         loss_value = loss.data.cpu().numpy()

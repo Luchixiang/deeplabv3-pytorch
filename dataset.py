@@ -13,7 +13,7 @@ val_dirs = ["frankfurt/", "munster/", "lindau/"]
 test_dirs = ["berlin", "bielefeld", "bonn", "leverkusen", "mainz", "munich"]
 
 
-class DataTrain(torch.utils.data.dataset):
+class DataTrain(torch.utils.data.Dataset):
     def __init__(self, cityscapes_data_path, cityscapes_meta_path):
         self.img_dir = cityscapes_data_path + "/leftImg8bit/train/"
         self.label_dir = cityscapes_meta_path + "/label_imgs/"
@@ -25,7 +25,7 @@ class DataTrain(torch.utils.data.dataset):
         self.examples = []
         for train_dir in train_dirs:
             train_img_dir = self.img_dir + train_dir
-            file_names = os.listdir(train_dir)
+            file_names = os.listdir(train_img_dir)
             for file_name in file_names:
                 img_id = file_name.split("_leftImg8bit.png")[0]
                 img_path = train_img_dir + file_name
@@ -60,15 +60,15 @@ class DataTrain(torch.utils.data.dataset):
         ########################################################################
         # randomly scale the img and the label:
         ########################################################################
-        scale = np.random.uniform(low=0.7, high=2.0)
-        new_img_h = int(scale * self.new_img_h)
-        new_img_w = int(scale * self.new_img_w)
-
-        img = cv2.resize(img, (new_img_w, new_img_h),
-                         interpolation=cv2.INTER_NEAREST)  # (shape: (new_img_h, new_img_w, 3))
-
-        label_img = cv2.resize(label_img, (new_img_w, new_img_h),
-                               interpolation=cv2.INTER_NEAREST)  # (shape: (new_img_h, new_img_w))
+        # scale = np.random.uniform(low=0.7, high=2.0)
+        # new_img_h = int(scale * self.new_img_h)
+        # new_img_w = int(scale * self.new_img_w)
+        #
+        # img = cv2.resize(img, (new_img_w, new_img_h),
+        #                  interpolation=cv2.INTER_NEAREST)  # (shape: (new_img_h, new_img_w, 3))
+        #
+        # label_img = cv2.resize(label_img, (new_img_w, new_img_h),
+        #                        interpolation=cv2.INTER_NEAREST)  # (shape: (new_img_h, new_img_w))
         # 归一化
         img = img / 255.0
         img = img - np.array([0.485, 0.456, 0.406])
@@ -103,7 +103,6 @@ class DatasetVal(torch.utils.data.Dataset):
                 img_path = val_img_dir_path + file_name
 
                 label_img_path = self.label_dir + img_id + ".png"
-                label_img = cv2.imread(label_img_path, -1)  # (shape: (1024, 2048))
 
                 example = {}
                 example["img_path"] = img_path

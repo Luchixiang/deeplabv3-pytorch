@@ -5,10 +5,10 @@ import numpy as np
 
 def weight_decay(network, l2_value):  # 权重衰退
     decay, no_decay = [], []
-    for name, param in network.parameters():
+    for param in network.parameters():
         if not param.requires_grad:
             continue
-        if len(param.shape) == 1 or name.endswith('.bias'):
+        if len(param.shape) == 1:
             no_decay.append(param)
         else:
             decay.append(param)
@@ -38,7 +38,8 @@ def image2color(img):
         18: [119, 11, 32],
         19: [81, 0, 81]
     }
-    img_height, img_width = img.shape()
+    img_height, img_width = img.shape
+    print(img_height,img_width)
     img_color = np.zeros((img_height, img_width, 3))
     for row in range(img_height):
         for height in range(img_width):
