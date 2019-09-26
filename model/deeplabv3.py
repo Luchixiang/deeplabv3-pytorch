@@ -23,7 +23,7 @@ class DeepLabv3(nn.Module):
         w = x.size()[3]
         feature_map = self.resnet(x)
         output = self.aspp(feature_map)
-        output = F.upsample(output, size=(h, w), mode="bilinear")  # 恢复图像分辨率
+        # output = F.upsample(output, size=(h, w), mode="bilinear")  # 恢复图像分辨率
 
         return output
 

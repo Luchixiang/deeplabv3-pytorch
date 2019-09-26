@@ -17,9 +17,9 @@ def weight_decay(network, l2_value):  # 权重衰退
 
 def image2color(img):
     label_to_color = {
-        0: [128, 64, 128],
-        1: [244, 35, 232],
-        2: [70, 70, 70],
+        0: [255, 0, 0],
+        1: [0, 255, 0],
+        2: [0, 0, 0],
         3: [102, 102, 156],
         4: [190, 153, 153],
         5: [153, 153, 153],
@@ -39,7 +39,7 @@ def image2color(img):
         19: [81, 0, 81]
     }
     img_height, img_width = img.shape
-    print(img_height,img_width)
+    print(img_height, img_width)
     img_color = np.zeros((img_height, img_width, 3))
     for row in range(img_height):
         for height in range(img_width):
