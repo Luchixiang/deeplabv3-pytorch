@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed7c0f30-9222-4b01-ae03-a3be1f8e803d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dataset_own.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/RDnet.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reeval.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/retrain.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/split_dataset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/xml_to_txt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deeplabv3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deeplabv3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/RDnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/RDnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/aspp.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/aspp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/deeplabv3.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/deeplabv3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reeval.py" beforeDir="false" afterPath="$PROJECT_DIR$/reeval.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -211,6 +203,7 @@
       <workItem from="1569311998540" duration="4870000" />
       <workItem from="1569329433437" duration="14979000" />
       <workItem from="1569463544020" duration="51000" />
+      <workItem from="1569498711514" duration="1225000" />
     </task>
     <servers />
   </component>

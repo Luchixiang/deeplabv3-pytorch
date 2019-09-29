@@ -19,6 +19,6 @@ class RDnet(nn.Module):
         w = x.size()[3]
         x = self.deeplabv3(x)
         x = self.con1x1(x)
-        x = F.upsample(x, size=(h, w), mode='bilinear')
+        x = F.interpolate(x, size=(h, w), mode='bilinear')
         return x
 
